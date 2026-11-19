@@ -33,7 +33,7 @@ def review_diff(diff_text: str, model: str | None = None) -> ReviewResponse:
         raise ReviewError("ANTHROPIC_API_KEY is required")
     try:
         response = Anthropic(api_key=api_key).messages.create(
-            model=model or os.getenv("ANTHROPIC_MODEL", DEFAULT_MODEL),
+            model=model or os.getenv("ANTHROPIC_MODEL") or DEFAULT_MODEL,
             max_tokens=1600,
             temperature=0,
             system=SYSTEM_PROMPT,
