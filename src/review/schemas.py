@@ -61,7 +61,7 @@ class Finding(BaseModel):
         return value
 
     @model_validator(mode="after")
-    def validate_line_range(self) -> "Finding":
+    def validate_line_range(self) -> Finding:
         if self.line_end < self.line_start:
             raise ValueError("line_end must be greater than or equal to line_start")
         return self

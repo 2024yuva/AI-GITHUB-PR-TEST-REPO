@@ -3,7 +3,6 @@ from pydantic import ValidationError
 
 from src.validator import ReviewResponse, validate_review
 
-
 DIFF = """--- a/src/maths.py
 +++ b/src/maths.py
 @@ -1,2 +1,3 @@

@@ -13,7 +13,6 @@ from .prompts import BASELINE_SYSTEM_PROMPT, build_baseline_prompt
 from .schemas import ReviewMetadata, ReviewResult, ReviewStatus
 from .validator import validate_evidence
 
-
 DEFAULT_MODEL = "claude-sonnet-4-20250514"
 MAX_DIFF_CHARS = 80_000
 
@@ -62,7 +61,7 @@ def review_diff(
 
 
 def _metadata(response: object, mode: str, model: str, started: float) -> ReviewMetadata:
-    usage = getattr(response, "usage")
+    usage = response.usage
     return ReviewMetadata(
         mode=mode,
         provider="anthropic",
